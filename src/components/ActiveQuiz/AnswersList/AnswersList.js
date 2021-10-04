@@ -7,7 +7,14 @@ export default function AnswersList(props) {
     <div>
       <ul className={classes.AnswersList}>
         {props.answers.map((answer, index) => {
-          return <AnswerItem key={index} answer={answer} />;
+          return (
+            <AnswerItem 
+              key={index} 
+              answer={answer} 
+              onAnswerClick={props.onAnswerClick} 
+              state={props.state ? props.state[answer.id] : null}
+            />
+          )
         })}
       </ul>
     </div>
